@@ -36,12 +36,20 @@ class TodosContainer extends Component {
     });
   };
 
+  deleteTodo = todo => {
+    TodoModel.delete(todo).then(data => {
+      let todos = this.state.todos.filter(todo => {
+        return todo._id !== data._id;
+      });
+    });
+  };
+
   render() {
     return (
       <div className="todosComponent">
         <CreateTodoForm createTodo={this.createTodo} />
 
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );
   }

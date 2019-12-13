@@ -5,6 +5,9 @@ class Todo extends Component {
     return (
       <li data-todos-index={this.props.todo._id}>
         <span className="todo-item">{this.props.todo.body}</span>
+        <span className="remove" onClick={this.deleteClickedTodo}>
+          Remove{" "}
+        </span>
       </li>
     );
   }
