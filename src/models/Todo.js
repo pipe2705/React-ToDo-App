@@ -28,6 +28,18 @@ class TodoModel {
       .then(response => response.json())
       .catch(err => console.log("Could not delete Todo Item \n", err));
   };
+
+  static update = todo => {
+    return fetch(`${endPoint}/${todo._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(todo)
+    })
+      .then(response => response.json())
+      .catch(err => console.log("Could not update todo \n", err));
+  };
 }
 
 export default TodoModel;
