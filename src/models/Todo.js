@@ -9,6 +9,19 @@ class TodoModel {
         .catch(err => console.log("Could not get all todos\n", err))
     );
   };
+
+  static create = todo => {
+    return fetch(endPoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(todo)
+    })
+      .then(response => response.json())
+      .catch(err => console.log("Could not post todo \n", err));
+  };
 }
 
 export default TodoModel;
