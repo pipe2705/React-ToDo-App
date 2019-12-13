@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class TodosContainer extends Component {
   render() {
-    return <h2>I am the TodosContainer</h2>;
+    return (
+      <div className=" todosContainer">
+        <h2>I am the TodosContainer</h2>;
+      </div>
+    );
   }
 }
 
